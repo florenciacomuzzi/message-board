@@ -1,3 +1,7 @@
+import argparse
+import sys
+
+
 class MessageBoard(object):
 
     messages = ['My first message']
@@ -14,4 +18,17 @@ class MessageBoard(object):
 
 if __name__ == '__main__':
     message_board = MessageBoard()
-    print(message_board.get_messages())
+
+    print('Welcome to MessageBoard!')
+    print('Enter \"list\" to see all messages.')
+    print('Enter \"post\" to post a message.')
+    print('Enter \"exit\" to destroy me.\n')
+    while True:
+        cmd = input('Your wish is my command > ')
+        if cmd == 'list':
+            print(message_board.get_messages())
+        elif cmd == 'post':
+            msg = input('Message > ')
+            message_board.post_message(msg)
+        elif cmd == 'exit':
+            sys.exit()
